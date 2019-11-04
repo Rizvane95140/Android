@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
                     TextView textMessage = findViewById(R.id.textView);
                     textMessage.setText(message);
+
+                    Intent intent = new Intent(MainActivity.this, CompteActivity.class);
+                    startActivity(intent);
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Veuillez saisir votre nom avec au moins 8 caractères.", Toast.LENGTH_LONG).show();
