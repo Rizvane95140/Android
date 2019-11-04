@@ -21,9 +21,7 @@ public class CompteActivity extends AppCompatActivity {
         if(intent.hasExtra("PersonneKey"))
         {
             String personneKey = intent.getStringExtra("personneKey");
-
             Gson gson = new Gson();
-
             Personne personne = gson.fromJson(personneKey, Personne.class);
         }
 

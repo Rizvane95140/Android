@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String password = textPassword.getText().toString();
 
-                Toast.makeText(MainActivity.this, MainActivity.checkPassword(textPassword) ? "TRUE" : "FALSE", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, MainActivity.checkPassword(textPassword) ? "TRUE" : "FALSE", Toast.LENGTH_LONG).show();
 
 
                 if(!nom.isEmpty() && nom.length() > 7){
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     Gson gson = new Gson();
                     String personneJson = gson.toJson(personne);
 
-                    Intent intent = new Intent(MainActivity.this, CompteActivity.class);
+                    Intent intent = new Intent(MainActivity.this, ListeExempleActivity.class);
                     intent.putExtra("personneKey", personneJson);
                     startActivity(intent);
                 }
