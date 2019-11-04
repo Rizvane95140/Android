@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Entities.Personne;
+import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,8 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
                     Personne personne = new Personne(nom, prenom, email, password);
 
+                    //
+                    Gson gson = new Gson();
+                    String personneJson = gson.toJson(personne);
 
                     Intent intent = new Intent(MainActivity.this, CompteActivity.class);
+                    intent.putExtra("personneKey", personneJson);
                     startActivity(intent);
                 }
                 else{
