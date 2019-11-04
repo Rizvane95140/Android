@@ -18,12 +18,12 @@ tools:context=".MainActivity">
         />
 
     <EditText
-        android:id="@+id/txtAge"
+        android:id="@+id/txtPrenom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
-        android:hint="Saississez votre age"
+        android:inputType="textPersonName"
+        android:hint="Saississez votre Prenom"
         />
 
     <EditText

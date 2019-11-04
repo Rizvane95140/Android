@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.Entities.Personne;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 EditText textNom = findViewById(R.id.txtNom);
-                EditText textAge = findViewById(R.id.txtAge);
+                EditText textPrenom = findViewById(R.id.txtPrenom);
                 EditText textEmail = findViewById(R.id.txtEmail);
                 EditText textPassword = findViewById(R.id.txtPassword);
 
                 String nom = textNom.getText().toString();
-                String age = textAge.getText().toString();
+                String prenom = textPrenom.getText().toString();
                 String email = textEmail.getText().toString();
 
                 String password = textPassword.getText().toString();
@@ -40,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
                 if(!nom.isEmpty() && nom.length() > 7){
 
-                    String message = "Bonjour Mr." + nom + ", votre âge est : " + age;
+                    String message = "Bonjour Mr." + nom + ", votre âge est : " + prenom;
 
                     TextView textMessage = findViewById(R.id.textView);
                     textMessage.setText(message);
+
+                    Personne personne = new Personne(nom, prenom, email, password);
+
 
                     Intent intent = new Intent(MainActivity.this, CompteActivity.class);
                     startActivity(intent);
