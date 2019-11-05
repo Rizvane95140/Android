@@ -8,6 +8,7 @@ public class Logement {
     private double Prix;
     private String Ville;
 
+
     public String getTitre() {
         return Titre;
     }

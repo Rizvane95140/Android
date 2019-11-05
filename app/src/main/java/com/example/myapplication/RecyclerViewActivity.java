@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -21,9 +22,29 @@ public class RecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
+
+        //Ici au lieu d'appeler de fausses données on appellera un vrai service web
+        ArrayList<Logement> logementList = GetLogement();
+
+        RecyclerView recyclerView = findViewById(R.id.rvwLogements);
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(logementList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setAdapter(recyclerViewAdapter);
+
+
     }
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+
+        private ArrayList<Logement> _logementList;
+
+        public RecyclerViewAdapter(ArrayList<Logement> logementList) {
+            this._logementList = logementList;
+        }
 
         @NonNull
         @Override
@@ -37,14 +58,13 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+            Logement logement = this._logementList.get(position);
+            holder.txtTitre.setText(logement.getTitre());
         }
-
-
 
         @Override
         public int getItemCount() {
-            return 0;
+            return this._logementList.size();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,7 +78,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         }
     }
 
-    private List<Logement> GetLogement()
+    private ArrayList<Logement> GetLogement()
     {
 
         ArrayList<Logement> logementList = new ArrayList<>();
