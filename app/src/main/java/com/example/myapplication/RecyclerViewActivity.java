@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.Entities.Logement;
@@ -58,8 +59,18 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+
             Logement logement = this._logementList.get(position);
             holder.txtTitre.setText(logement.getTitre());
+
+
+            holder.btnDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
         }
 
         @Override
@@ -69,11 +80,15 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public TextView txtTitre;
+            public Button btnDetail;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
 
                 txtTitre = itemView.findViewById(R.id.txtTitre);
+                btnDetail = itemView.findViewById(R.id.btnDetail);
+
+
             }
         }
     }
@@ -89,5 +104,10 @@ public class RecyclerViewActivity extends AppCompatActivity {
         logementList.add(logement);
 
         return logementList;
+    }
+
+    public void openDialog()
+    {
+
     }
 }
