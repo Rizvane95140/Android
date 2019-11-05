@@ -9,7 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.myapplication.Entities.Logement;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListeExempleActivity extends AppCompatActivity {
 
