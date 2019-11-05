@@ -10,6 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.myapplication.Entities.Logement;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecyclerViewActivity extends AppCompatActivity {
 
     @Override
@@ -51,5 +56,18 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 txtTitre = itemView.findViewById(R.id.txtTitre);
             }
         }
+    }
+
+    private List<Logement> GetLogement()
+    {
+
+        ArrayList<Logement> logementList = new ArrayList<>();
+
+        Logement logement = new Logement();
+        logement.setTitre("Lyon");
+
+        logementList.add(logement);
+
+        return logementList;
     }
 }
